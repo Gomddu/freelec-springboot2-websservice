@@ -1,0 +1,34 @@
+buildscript {
+    // 전역변수를 설정
+    ext {
+      springBootVersion = '2.1.7.RELEASE'
+    }
+    // 각종 의존성(라이브러리) 들을 어떤 원격저장소에서 받을지 정함
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    // 개발에 필요한 의존성들 선언
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+// 스프링 부트의 의존성들 관리
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.example.gom'
+version '1.0-SNAPSHOT'
+sourceCompatibility(1.8)
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springFramework.boot:spring-boot-starter-test')
+}
